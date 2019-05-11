@@ -16,10 +16,8 @@ var kupAjax = function (method, page, asyn){
        alert( xhr.status + ': ' + xhr.statusText + ' что-то не так'); // пример вывода: 404: Not Found
        return;
     } else {
-    // вывести результат
-    var arrContent = xhr.responseText;
-    //var arrSys = eval('('+arrContent+')'); 
-    return arrContent;     
+    // вывести результат 
+    return xhr.responseText;     
     }
   }
 

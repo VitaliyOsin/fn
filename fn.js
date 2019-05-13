@@ -40,7 +40,7 @@ var kupAjax = function (method, page, asyn){
     return document.createElement(el);
   }
   
-  // get - функция нахождения элемента по id
+  // gel - функция нахождения элемента по id
   var gel = function(id){
     return document.getElementById(id);
   }

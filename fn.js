@@ -22,5 +22,15 @@ var kupAjax = function (method, page, asyn){
   }
 
   let copyObj = function(obj){return Object.fromEntries(Object.entries(obj))}
+  
+  function addEvent(target, type, handler){
+    if(target.addEventListener){
+      target.addEventListener(type, handler, false);
+    }else{
+      target.attachEvent('on'+type, function(e){
+       return handler.call(target, e);
+      });
+    }
+  }
 
   

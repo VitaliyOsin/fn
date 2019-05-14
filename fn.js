@@ -5,7 +5,7 @@ var kupAjax = function (method, page, asyn){
     }else if(window.ActiveXObject){
       try{
         xhr = new ActiveXObject('Microsoft.XMLHTTP');
-      }catch{
+      }catch(err){
         xhr = new ActiveXObject('Msxm12.XMLHTTP');
       }
      }

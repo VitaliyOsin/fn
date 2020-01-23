@@ -45,6 +45,12 @@ var kupAjax = function (method, page, asyn){
     return document.getElementById(id);
   }
   
+  // qel - функция нахождения элемента по селектору el
+  const qel = el => document.querySelector(el);
+
+  // qell - функция нахождения всех элементов по селектору el
+  const qell = el => document.querySelectorAll(el);
+  
   // appendIn & appendOn - добавление элементов с продолжением
   Object.prototype.appendOn = function(el) {
     this.append(el);

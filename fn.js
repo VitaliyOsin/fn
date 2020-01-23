@@ -45,3 +45,14 @@ var kupAjax = function (method, page, asyn){
     return document.getElementById(id);
   }
   
+  // appendIn & appendOn - добавление элементов с продолжением
+  Object.prototype.appendOn = function(el) {
+    this.append(el);
+    return this;
+}
+
+Object.prototype.appendIn = function(el) {
+    this.append(el);
+    return el;
+}
+  

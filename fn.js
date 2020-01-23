@@ -55,10 +55,10 @@ var kupAjax = function (method, page, asyn){
   Object.prototype.appendOn = function(el) {
     this.append(el);
     return this;
-}
+  }
 
-Object.prototype.appendIn = function(el) {
+  Object.prototype.appendIn = function(el) {
     this.append(el);
     return el;
-}
+  }
   

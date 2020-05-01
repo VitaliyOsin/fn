@@ -62,7 +62,7 @@ var kupAjax = function (method, page, asyn){
     return el;
   }
 
-  //Округление десятичного числа
+  // rnd - округление десятичного числа, полученного при делении n на d. После запятой - один знак
   const rnd = function(n,d){
       return Math.round((n%d)/d*10)/10+Math.floor(n/d);
   }

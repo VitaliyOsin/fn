@@ -61,4 +61,9 @@ var kupAjax = function (method, page, asyn){
     this.append(el);
     return el;
   }
+
+  //Округление десятичного числа
+  const rnd = function(n,d){
+      return Math.round((n%d)/d*10)/10+Math.floor(n/d);
+  }
   

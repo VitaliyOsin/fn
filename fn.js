@@ -67,3 +67,6 @@ var kupAjax = function (method, page, asyn){
       return Math.round((n%d)/d*10)/10+Math.floor(n/d);
   }
   
+  // cutF - функция, округляющая числа типа Float, оставляя после запятой (a) знаков
+  const cutF = (n,a=1) => { const s=Math.pow(10,a);  return Math.floor(n)+(Math.round((n-Math.floor(n))*s))/s;}
+  

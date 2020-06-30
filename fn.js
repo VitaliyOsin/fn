@@ -1,4 +1,4 @@
-var kupAjax = function (method, page, asyn){
+const kupAjax = function (method, page, asyn){
     var xhr; 
     if(window.XMLHttpRequest){ 
       xhr = new XMLHttpRequest();
@@ -22,7 +22,7 @@ var kupAjax = function (method, page, asyn){
   }
 
   // copyObj - функция глубокого копирования объектов (два объекта будут независимыми)
-  let copyObj = function(obj){return Object.fromEntries(Object.entries(obj))}
+  const copyObj = function(obj){return Object.fromEntries(Object.entries(obj))}
 
   // addEvent - кросбраузерное решение для addEventListener
   function addEvent(target, type, handler){
@@ -36,12 +36,12 @@ var kupAjax = function (method, page, asyn){
   }
 
   // cel - функция создания нового элемента
-  var cel = function(el){
+  const cel = function(el){
     return document.createElement(el);
   }
   
   // gel - функция нахождения элемента по id
-  var gel = function(id){
+  const gel = function(id){
     return document.getElementById(id);
   }
   

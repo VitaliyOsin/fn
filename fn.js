@@ -70,3 +70,9 @@ const kupAjax = function (method, page, asyn){
   // cutF - функция, округляющая числа типа Float, оставляя после запятой (a) знаков
   const cutF = (n,a=1) => { const s=Math.pow(10,a);  return Math.floor(n)+(Math.round((n-Math.floor(n))*s))/s;}
   
+  // pipe - HOF для последовательного выполнения действий над аргументом
+  const pipe = (...rest) => {
+    return function(arg) {
+      return rest.reduce((t,a) => a(t), arg);
+    }
+  }

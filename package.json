@@ -1,0 +1,23 @@
+{
+  "name": "fosin",
+  "version": "1.0.0",
+  "description": "Usefull function in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitaliyOsin/fn.git"
+  },
+  "keywords": [
+    "functions",
+    "javascript"
+  ],
+  "author": "Osin Vitaliy <d_dva@list.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitaliyOsin/fn/issues"
+  },
+  "homepage": "https://github.com/VitaliyOsin/fn#readme"
+}

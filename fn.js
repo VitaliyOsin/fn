@@ -1,78 +1,94 @@
-const kupAjax = function (method, page, asyn){
-    var xhr; 
-    if(window.XMLHttpRequest){ 
-      xhr = new XMLHttpRequest();
-    }else if(window.ActiveXObject){
-      try{
-        xhr = new ActiveXObject('Microsoft.XMLHTTP');
-      }catch(err){
-        xhr = new ActiveXObject('Msxm12.XMLHTTP');
-      }
-     }
-    xhr.open(method, page, asyn);
-    xhr.send();
-    if (xhr.status != 200) {
-      // обработать ошибку
-       alert( xhr.status + ': ' + xhr.statusText + ' что-то не так'); // пример вывода: 404: Not Found
-       return;
-    } else {
-    // вывести результат 
-    return xhr.responseText;     
+const kupAjax = function (method, page, asyn) {
+  var xhr;
+  if (window.XMLHttpRequest) {
+    xhr = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    try {
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (err) {
+      xhr = new ActiveXObject("Msxm12.XMLHTTP");
     }
   }
+  xhr.open(method, page, asyn);
+  xhr.send();
+  if (xhr.status != 200) {
+    alert(xhr.status + ": " + xhr.statusText + " что-то не так");
+    return;
+  } else {
+    return xhr.responseText;
+  }
+};
 
-  // copyObj - функция глубокого копирования объектов (два объекта будут независимыми)
-  const copyObj = function(obj){return Object.fromEntries(Object.entries(obj))}
+const copyObj = function (obj) {
+  return Object.fromEntries(Object.entries(obj));
+};
 
-  // addEvent - кросбраузерное решение для addEventListener
-  function addEvent(target, type, handler){
-    if(target.addEventListener){
-      target.addEventListener(type, handler, false);
-    }else{
-      target.attachEvent('on'+type, function(e){
-       return handler.call(target, e);
-      });
-    }
+function addEvent(target, type, handler) {
+  if (target.addEventListener) {
+    target.addEventListener(type, handler, false);
+  } else {
+    target.attachEvent("on" + type, function (e) {
+      return handler.call(target, e);
+    });
   }
+}
 
-  // cel - функция создания нового элемента
-  const cel = function(el){
-    return document.createElement(el);
-  }
-  
-  // gel - функция нахождения элемента по id
-  const gel = function(id){
-    return document.getElementById(id);
-  }
-  
-  // qel - функция нахождения элемента по селектору el
-  const qel = el => document.querySelector(el);
+const cel = function (el) {
+  return document.createElement(el);
+};
 
-  // qell - функция нахождения всех элементов по селектору el
-  const qell = el => document.querySelectorAll(el);
-  
-  // appendIn & appendOn - добавление элементов с продолжением
-  Object.prototype.appendOn = function(el) {
-    this.append(el);
-    return this;
-  }
+const gel = function (id) {
+  return document.getElementById(id);
+};
 
-  Object.prototype.appendIn = function(el) {
-    this.append(el);
-    return el;
-  }
+const qel = (el) => document.querySelector(el);
 
-  // rnd - округление десятичного числа, полученного при делении n на d. После запятой - один знак
-  const rnd = function(n,d){
-      return Math.round((n%d)/d*10)/10+Math.floor(n/d);
-  }
-  
-  // cutF - функция, округляющая числа типа Float, оставляя после запятой (a) знаков
-  const cutF = (n,a=1) => { const s=Math.pow(10,a);  return Math.floor(n)+(Math.round((n-Math.floor(n))*s))/s;}
-  
-  // pipe - HOF для последовательного выполнения действий над аргументом
-  const pipe = (...rest) => {
-    return function(arg) {
-      return rest.reduce((t,a) => a(t), arg);
-    }
-  }
+const qell = (el) => document.querySelectorAll(el);
+
+/*
+Object.prototype.appendOn = function (el) {
+  this.append(el);
+  return this;
+};
+
+Object.prototype.appendIn = function (el) {
+  this.append(el);
+  return el;
+};
+*/
+
+const rnd = function (n, d) {
+  return Math.round(((n % d) / d) * 10) / 10 + Math.floor(n / d);
+};
+
+const cutF = (n, a = 1) => {
+  const s = Math.pow(10, a);
+  return Math.floor(n) + Math.round((n - Math.floor(n)) * s) / s;
+};
+
+const pipe = (...rest) => {
+  return function (arg) {
+    return rest.reduce((t, a) => a(t), arg);
+  };
+};
+
+const createArr = (n, m) => new Array(n).fill(m);
+const createIndexArr = (n) => new Array(n).fill("*").map((v, i) => i);
+const createIndexStartArr = (n, start = 0) =>
+  new Array(n).fill("*").map((v, i) => i + start);
+
+module.exports = {
+  kupAjax,
+  copyObj,
+  addEvent,
+  cel,
+  gel,
+  qel,
+  qell,
+  rnd,
+  cutF,
+  pipe,
+  createArr,
+  createIndexArr,
+  createIndexStartArr,
+};
